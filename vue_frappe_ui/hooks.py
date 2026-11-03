@@ -228,6 +228,10 @@ app_license = "mit"
 # 	}
 # ]
 
+website_route_rules = [
+    {"from_route": "/first_vue/<path:app_path>", "to_route": "first_vue"},
+]
+
 # Authentication and authorization
 # --------------------------------
 

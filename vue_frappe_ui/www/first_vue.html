@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Vue Portal</title>
+    <script type="module" crossorigin src="/assets/vue_frappe_ui/first_vue/assets/index-CbcRta_A.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vue_frappe_ui/first_vue/assets/index-BwyTpMnj.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // Frappe Jinja injects CSRF token here at render time
+      window.csrf_token = "{{ csrf_token }}";
+    </script>
+  </body>
+</html>

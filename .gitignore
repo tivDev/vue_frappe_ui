@@ -1,7 +1,56 @@
+# Python / Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+build/
+dist/
+develop-eggs/
+.eggs/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Frappe
+vue_frappe_ui/public/dist/
+
+# Node & Package Managers
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.yarn-integrity
+
+# Vite / Frontend build & cache
+dist/
+dist-ssr/
+first_vue/dist/
+.vite/
+**/.vite/
+**/.vite-temp/
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Operating System & Editors
 .DS_Store
-*.pyc
-*.egg-info
+Thumbs.db
+*.sw[po]
 *.swp
+*.swo
+*~
 tags
-node_modules
-__pycache__
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Optional: Compiled SPA Portal Assets
+# Uncomment the lines below if your CI/CD or server builds the frontend assets and you do not want to track them in Git:
+# vue_frappe_ui/public/first_vue/
+# vue_frappe_ui/www/first_vue.html
