@@ -378,6 +378,45 @@ bench build --app <app_name>
 
 ---
 
+### 3. Using Vue Router Inside Frappe Desk Pages
+
+> [!IMPORTANT]
+> **Use In-Memory History Only (`createMemoryHistory`)**:
+> Frappe Desk manages the browser address bar with `frappe.router` (`/app/...`). Using `createWebHistory()` or `createWebHashHistory()` will conflict with Frappe Desk navigation.
+> By using `createMemoryHistory()`, Vue Router routes internally in memory: `<router-view>`, `router.push()`, and active links work smoothly without modifying the browser URL.
+
+#### Example Bundle (`public/js/router_demo.bundle.js`):
+```javascript
+import { createApp } from "vue";
+import { createRouter, createMemoryHistory } from "vue-router";
+import RouterDemoApp from "./RouterDemoApp.vue";
+import OverviewTab from "./router_views/OverviewTab.vue";
+import AnalyticsTab from "./router_views/AnalyticsTab.vue";
+import SettingsTab from "./router_views/SettingsTab.vue";
+
+const routes = [
+  { path: "/", name: "Overview", component: OverviewTab },
+  { path: "/analytics", name: "Analytics", component: AnalyticsTab },
+  { path: "/settings", name: "Settings", component: SettingsTab },
+];
+
+frappe.provide("frappe.vue_frappe_ui");
+
+frappe.vue_frappe_ui.render_router_demo = function (target) {
+  const router = createRouter({
+    history: createMemoryHistory(), // <--- Crucial: In-memory routing for Desk
+    routes,
+  });
+
+  const app = createApp(RouterDemoApp);
+  app.use(router);
+  app.mount(target);
+  return app;
+};
+```
+
+---
+
 ## Summary Command Cheat Sheet
 
 | Task | Command |
